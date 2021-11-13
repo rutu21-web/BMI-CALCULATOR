@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Mass Index Calculator</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div>
+         <h2>BMI Calculator</h2>
+         <p class="text">Height</p>
+         <input type="text" id="height" placeholder="Enter your Height">
+         <p class="text">Weight</p>
+         <input type="text" id="weight" placeholder="Enter your Weight">
+         <p id="result"></p>
+         <p id="report"></p>
+         <button id="btn" onclick="return bmi()">Calculate</button>
+        <p id="info">Please Enter Your Height[cm] And Weight[kg]</p>
+        
+     </div>
+   
+     <script>
+         function bmi() {
+          
+            var h = document.getElementById('height').value;
+            var w = document.getElementById('weight').value;
+
+            var bmi = w/(h/100 * h/100);
+             
+             var total = bmi.toFixed(2);
+              
+            document.getElementById('result').innerHTML = "Your Body Mass Index(BMI) is "+total;
+             
+            if(total<=15)
+              {
+                 document.getElementById('report').innerHTML = "You are In Starvation"; 
+              }
+            if(total>=15.1 && total<=17.5)
+             {
+                 document.getElementById('report').innerHTML = "You are Anorexic";
+             }
+             if(total<=17.5 && total>=18.5)
+             {
+                 document.getElementById('report').innerHTML = "You are Underweight";
+             }  
+
+             if(total<=18.6 && total>= 24.9)
+             {
+                 document.getElementById('report').innerHTML = "You are in Ideal Condition";
+             }
+
+             if(total<=25 && total>=25.9)
+             {
+                 document.getElementById('report').innerHTML = "You are overweight";
+             }
+
+             if(total<=30 && total>=30.9)
+              {
+                  document.getElementById('report').innerHTML = "You are Obese";
+              }
+
+              if(total>=40)
+              {
+                  document.getElementById('report').innerHTML = "You are Morbidly Obese";
+              }
+            
+
+
+         }
+     </script>
+
+
+
+</body>
+</html>
